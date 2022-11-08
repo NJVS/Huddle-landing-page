@@ -1,0 +1,101 @@
+@use '../utils/mixins.scss' as *;
+
+header.main-header {
+    margin-bottom: 20rem;
+
+    @include breakpoint(mobile, sm) {
+        margin-bottom: 10rem;
+    }
+
+    nav.main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 5rem;
+        margin-bottom: 15.625rem;
+
+        img {
+            width: min(240px, 30%);
+            min-width: 100px;
+        }
+
+        @include breakpoint(mobile, sm) {
+            padding-top: 2rem;
+            margin-bottom: 7rem;
+        }
+    }
+
+    .hero {
+        .intro {
+            margin-bottom: 8rem;
+            text-align: center;
+
+            h1 {
+                margin-bottom: 1.125rem;
+                color: var(--c-neutral-800);
+                font-family: var(--ff-primary);
+                font-size: var(--fs-900);
+                font-weight: 700;
+            }
+            p {
+                margin: auto;
+                margin-bottom: 4rem;
+                width: min(590px, 90%);
+                color: var(--c-neutral-500);
+                font-family: var(--ff-secondary);
+                font-size: var(--fs-400);
+                font-weight: 600;
+
+                @include breakpoint(mobile, sm) {
+                    margin-bottom: 2.75rem;
+                }
+            }
+        }
+        
+        figure {
+            margin-bottom: 6rem;
+            width: 100%;
+
+            img {
+                margin: auto;
+                width: min(1035px, 85%);  
+                height: auto;
+
+                
+            }
+
+            @include breakpoint(mobile, sm) {
+                margin-bottom: 3rem;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .comunity-status {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 5rem 1rem;
+
+            > div {
+                text-align: center;
+                font-family: var(--ff-secondary);
+
+                img {
+                    width: 15%;
+                }
+
+                h2 {
+                    color: var(--c-neutral-800);
+                    font-size: var(--fs-950);
+                    font-weight: 700;
+                }
+                p {
+                    color: var(--c-neutral-300);
+                    font-size: var(--fs-600);
+                }
+            }
+        }
+    }
+}

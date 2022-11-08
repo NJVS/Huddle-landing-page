@@ -1,0 +1,14 @@
+main.root {
+    width: 100%;
+    height: auto;
+    background-color: var(--c-neutral-100);
+
+    .g-width {
+        margin: auto;
+        width: min(1296px, 90%);
+    }
+    .g-width-sm {
+        margin: auto;
+        width: min(1140px, 90%);
+    }
+}

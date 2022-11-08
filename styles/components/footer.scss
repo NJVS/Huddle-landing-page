@@ -1,0 +1,183 @@
+@use '../utils/mixins.scss' as *;
+
+footer.main-footer {
+    position: relative;
+    padding: 1rem 0 3rem;
+    width: 100%;
+    background-color: var(--c-neutral-800);
+    
+    color: var(--c-neutral-150);
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-300);
+
+    p {
+        margin-top: 1.5rem;
+        max-width: 375px;
+    }
+
+    .contacts {
+        > img {
+            margin-bottom: 1rem;
+
+            @include breakpoint(mobile, sm) {
+                width: 45%;
+            }
+        }
+        ul li {
+            display: flex;
+            align-items: center;
+            margin-top: 1.25rem;
+            p {
+                margin: 0 0 0 1.5rem;
+            }
+        }
+    }
+
+    .subscribe {
+        width: min(475px, 100%);
+
+        h3 {
+            font-size: var(--fs-700);
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        form {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+
+            input[type=email] {
+                position: relative;
+                flex-grow: 1;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+            }
+            
+            input[type=submit] {
+                font-size: var(--fs-300);
+            }
+
+            // error
+            p.error {
+                display: none;
+                position: absolute;
+                top: 100%;
+                margin-top: 5px;
+                margin-left: 5px;
+                color: var(--c-pink-400);
+            }
+
+            &.err {
+                input[type=email] {
+                    border-color: var(--c-pink-400);
+                }
+
+                p.error {
+                    display: block;
+                }
+            }
+
+            @include breakpoint(mobile, sm) {
+                align-items: flex-end;
+                flex-direction: column;
+                gap: 0.25rem;
+
+                input[type=email] {
+                    display: block;
+                    width: 100%;
+                }
+
+                p.error {
+                    top: 50%;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    ul.socials {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        @include breakpoint(mobile, sm) {
+            justify-content: center;
+        }
+
+        a {
+            color: var(--c-neutral-150);
+            font-size: 2rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            @include hover {
+                color: var(--c-pink-400);
+            }
+        }
+    }
+
+    .attribution {
+        p {
+            margin-top: 0;
+        }
+        a {
+            color: var(--c-pink-400);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            
+            @include hover {
+                color: var(--c-pink-300);
+            }
+    
+            
+        }
+        @include breakpoint(mobile, sm) {
+            text-align: center;
+        }
+    }
+    
+
+
+
+
+    // layout
+    > div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+
+        grid-template-areas: 
+            "contacts subscribe"
+            "socials attr";
+
+        @include breakpoint(mobile, md) {
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+                "subscribe"
+                "contacts"
+                "socials"
+                "attr";
+        }
+
+        @include breakpoint(mobile, sm) {
+            gap: 1.5rem;
+        }
+
+        .contacts {
+            grid-area: contacts;
+        }
+        .subscribe {
+            grid-area: subscribe;
+        }
+        .socials {
+            grid-area: socials;
+        }
+        .attribution {
+            grid-area: attr;
+        }
+    }
+
+}
